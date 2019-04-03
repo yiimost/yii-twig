@@ -1,0 +1,19 @@
+{
+    "name": "yiimost/yii-twig",
+    "description": "The Twig integration for the Yii framework",
+    "authors": [
+        {
+            "name": "Sergei Sergeev",
+            "email": "info@asamat.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.7",
+        "yiisoft/yii2": "^2.0.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yii\\Bridge\\Twig\\": "src/"
+        }
+    }
+}
