@@ -18,6 +18,7 @@ class Twig implements Configurable
         $config = array_merge([
             'environment' => [],
             'extensions' => [],
+            'global' => [],
         ], $config);
 
         if (isset($config['environment']['cache'])) {
@@ -27,15 +28,14 @@ class Twig implements Configurable
         $loader = new FilesystemLoader(Yii::getAlias('@app/views'));
         $this->environment = new Environment($loader, $config['environment']);
 
-        $extensions = [
-            // new Yii\Bridge\Twig\Extension\FormExtension(),
-            // new Yii\Bridge\Twig\Extension\RoutingExtension(),
-        ];
+        $this->environment->addGlobal('app', Yii::$app);
+        foreach ($config['global'] as $name => $object) {
+            $this->environment->addGlobal($name, $object);
+        }
 
         foreach ($config['extensions'] as $extensions) {
             $extensions[] = new $extensions;
         }
-
         $this->environment->setExtensions($extensions);
 
         /** @var CoreExtension $coreExtension */
