@@ -21,4 +21,4 @@ renderFile()
 
 Use inheritance and including instead.
 
-Difference from official yii-twig package: It's simple and doesn't use yii-like way templating that is why it's more quickly.
+Difference from official yii-twig package: It's simple and doesn't use yii-like way templating that is why it's more faster.
